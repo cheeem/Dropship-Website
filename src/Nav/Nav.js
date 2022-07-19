@@ -12,11 +12,11 @@ const Nav = () => {
 
   return (
     <div className='nav'>
-        <div className='header'>
-          <div className='header-img'> </div>
-          <p className='header-title'> Boost Insoles </p>
+        <div className='nav-header'>
+          <div className='nav-header-img'> </div>
+          <p className='nav-header-title'> Company Name </p>
         </div>
-        <ul className='link-list'>
+        <ul className='nav-link-list'>
           {linkList.map((linkData , index) => {
             return (
               <CustomLink key={index} to={linkData.path}> {linkData.label} </CustomLink>
@@ -30,9 +30,8 @@ const Nav = () => {
 const CustomLink = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-
   return (
-    <li className={isActive ? 'active' : 'inactive'}>
+    <li className={isActive ? 'nav-link-active' : 'nav-link-inactive'}>
       <Link to={to} {...props}>
         {children}
       </Link>
